@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using XrmToolBox.Extensibility;
+using XrmToolBox.Extensibility.Interfaces;
 using XRTSoft.PowerApps.PowerFind.Controllers;
 using XRTSoft.PowerApps.PowerFind.Models;
 
@@ -11,12 +12,14 @@ namespace XRTSoft.PowerApps.PowerFind
     /// <summary>
     /// The view layer for the control.
     /// </summary>
-    public partial class PowerFindControl : PluginControlBase
+    public partial class PowerFindControl : PluginControlBase, IGitHubPlugin
     {
         // Properties
 
         private Settings AppSettings;
         private MainController Controller { get; set; }
+        public string RepositoryName => "PowerApps.PowerFind";
+        public string UserName => "glosrob";
 
         // Constructors
 
