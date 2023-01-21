@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+/packages
+/bin
+/obj
+/XRTSoft.PowerApps.PowerFind.v3.ncrunchsolution.user
+/XRTSoft.PowerApps.PowerFind.csproj.user
