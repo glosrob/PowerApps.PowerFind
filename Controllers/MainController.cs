@@ -1,13 +1,9 @@
 ﻿using McTools.Xrm.Connection;
 using Microsoft.Xrm.Sdk;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using XrmToolBox.Extensibility;
 using XRTSoft.PowerApps.PowerFind.Data;
 using XRTSoft.PowerApps.PowerFind.Models;
 
@@ -38,6 +34,8 @@ namespace XRTSoft.PowerApps.PowerFind.Controllers
         private PowerFindData Data { get; set; }
 
         private Settings AppSettings { get; set; }
+
+        internal bool IsConnected => Data.IsSourceConnected;
 
         // Methods
 
@@ -104,7 +102,7 @@ namespace XRTSoft.PowerApps.PowerFind.Controllers
             //Completed the work
             timer.Stop();
             PowerFind.RecordEvent("Find", timer.ElapsedMilliseconds);
-            PowerFind.SetStatus($"Completed (In {timer.ElapsedMilliseconds/1000} seconds)");
+            PowerFind.SetStatus($"Completed (in {timer.ElapsedMilliseconds}ms)");
             PowerFind.NotSearching();
             PowerFind.DisplayResults(allResults);
         }

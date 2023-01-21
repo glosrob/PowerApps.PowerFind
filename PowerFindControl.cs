@@ -39,11 +39,19 @@ namespace XRTSoft.PowerApps.PowerFind
                     AppSettings = new Settings();
                 }
                 Reset();
+                Controller.Load(AppSettings);
             };
 
             // When the user clicks the find button, find results
             this.btnFind.Click += async delegate (object sender, EventArgs e)
             {
+                // Check we are online
+                ExecuteMethod(CheckWeAreConnected);
+
+                if (!Controller.IsConnected)
+                {
+                    return;
+                }
                 var col = txtColumn.Text;
                 await Controller.Find(col, chkForms.Checked, chkViews.Checked, chkWorkflows.Checked);
             };
@@ -121,6 +129,11 @@ namespace XRTSoft.PowerApps.PowerFind
                 }
                 dgvResults.Show();
             });
+        }
+        internal void CheckWeAreConnected()
+        {
+            // Check works without actually calling Dynamics
+            // So this method is arbitrary
         }
 
         internal void RecordEvent(string eventName, long ms)

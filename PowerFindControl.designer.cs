@@ -29,9 +29,12 @@ namespace XRTSoft.PowerApps.PowerFind
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.ComponentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ssMain = new System.Windows.Forms.StatusStrip();
             this.tsslMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpSearch = new System.Windows.Forms.GroupBox();
@@ -42,9 +45,6 @@ namespace XRTSoft.PowerApps.PowerFind
             this.txtColumn = new System.Windows.Forms.TextBox();
             this.lblColumn = new System.Windows.Forms.Label();
             this.lblSearching = new System.Windows.Forms.Label();
-            this.ComponentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.ssMain.SuspendLayout();
             this.grpSearch.SuspendLayout();
@@ -57,27 +57,27 @@ namespace XRTSoft.PowerApps.PowerFind
             this.dgvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ComponentType,
             this.NameColumn,
             this.idColumn});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResults.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResults.EnableHeadersVisualStyles = false;
             this.dgvResults.Location = new System.Drawing.Point(3, 220);
             this.dgvResults.Margin = new System.Windows.Forms.Padding(10);
@@ -86,6 +86,30 @@ namespace XRTSoft.PowerApps.PowerFind
             this.dgvResults.RowTemplate.Height = 40;
             this.dgvResults.Size = new System.Drawing.Size(1117, 886);
             this.dgvResults.TabIndex = 5;
+            // 
+            // ComponentType
+            // 
+            this.ComponentType.HeaderText = "Component Type";
+            this.ComponentType.MinimumWidth = 12;
+            this.ComponentType.Name = "ComponentType";
+            this.ComponentType.ReadOnly = true;
+            this.ComponentType.Width = 150;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.MinimumWidth = 12;
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Width = 550;
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "Id";
+            this.idColumn.MinimumWidth = 12;
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 350;
             // 
             // ssMain
             // 
@@ -155,7 +179,7 @@ namespace XRTSoft.PowerApps.PowerFind
             // btnFind
             // 
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(900, 30);
+            this.btnFind.Location = new System.Drawing.Point(900, 29);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(201, 173);
             this.btnFind.TabIndex = 6;
@@ -190,30 +214,6 @@ namespace XRTSoft.PowerApps.PowerFind
             this.lblSearching.TabIndex = 12;
             this.lblSearching.Text = "Searching...";
             this.lblSearching.Visible = false;
-            // 
-            // ComponentType
-            // 
-            this.ComponentType.HeaderText = "Component Type";
-            this.ComponentType.MinimumWidth = 12;
-            this.ComponentType.Name = "ComponentType";
-            this.ComponentType.ReadOnly = true;
-            this.ComponentType.Width = 150;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Name";
-            this.NameColumn.MinimumWidth = 12;
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Width = 550;
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "Id";
-            this.idColumn.MinimumWidth = 12;
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 350;
             // 
             // PowerFindControl
             // 
