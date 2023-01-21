@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using XrmToolBox.Extensibility;
+using XrmToolBox.Extensibility.Args;
 using XrmToolBox.Extensibility.Interfaces;
 using XRTSoft.PowerApps.PowerFind.Controllers;
 using XRTSoft.PowerApps.PowerFind.Models;
@@ -12,15 +13,20 @@ namespace XRTSoft.PowerApps.PowerFind
     /// <summary>
     /// The view layer for the control.
     /// </summary>
-    public partial class PowerFindControl : PluginControlBase, IGitHubPlugin
+    public partial class PowerFindControl : PluginControlBase, IGitHubPlugin, IStatusBarMessenger
     {
         // Properties
 
-        private Settings AppSettings;
-        private MainController Controller { get; set; }
+        public event EventHandler<StatusBarMessageEventArgs> SendMessageToStatusBar;
+
         public string RepositoryName => "PowerApps.PowerFind";
+
         public string UserName => "glosrob";
 
+        private MainController Controller { get; set; }
+
+        private Settings AppSettings;
+        
         // Constructors
 
         /// <summary>
@@ -94,6 +100,16 @@ namespace XRTSoft.PowerApps.PowerFind
         internal void SetStatus(string status)
         {
             tsslMain.Text = status;
+        }
+
+        internal void SetStatusMessage(string msg, int percent)
+        {
+            SendMessageToStatusBar?.Invoke(this, new StatusBarMessageEventArgs(percent, msg));
+        }
+
+        internal void ClearStatusMessage()
+        {
+            SendMessageToStatusBar?.Invoke(this, new StatusBarMessageEventArgs(string.Empty));
         }
 
         internal void Searching()

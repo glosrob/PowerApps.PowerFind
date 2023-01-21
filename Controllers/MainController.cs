@@ -57,18 +57,21 @@ namespace XRTSoft.PowerApps.PowerFind.Controllers
             // Reset
             PowerFind.Reset();
             PowerFind.Searching();
+            PowerFind.SetStatusMessage("Searching..", 0);
 
             // Validate
             if (string.IsNullOrEmpty(column))
             {
                 PowerFind.ShowError("Please provide a column to search for.");
                 PowerFind.NotSearching();
+                PowerFind.ClearStatusMessage();
                 return;
             }
             if (!forms && !views && !wflows)
             {
                 PowerFind.ShowError("Please choose at least one component to search for.");
                 PowerFind.NotSearching();
+                PowerFind.ClearStatusMessage();
                 return;
             }
 
@@ -78,18 +81,22 @@ namespace XRTSoft.PowerApps.PowerFind.Controllers
             if (forms)
             {
                 tasks.Add(Data.FindInForms(column));
+                PowerFind.SetStatusMessage("Finding in forms", 40);
             }
             if (views)
             {
                 tasks.Add(Data.FindInViews(column));
+                PowerFind.SetStatusMessage("Finding in views", 60);
             }
             if (wflows)
             {
                 tasks.Add(Data.FindInProcesses(column));
+                PowerFind.SetStatusMessage("Finding in workflows", 80);
             }
 
             // wait for them all
             await Task.WhenAll(tasks.ToArray());
+            PowerFind.SetStatusMessage("Organising..", 100);
             PowerFind.SetStatus("Finished searching");
             var allResults = new List<SearchResult>();
             foreach (var t in tasks)
@@ -105,6 +112,7 @@ namespace XRTSoft.PowerApps.PowerFind.Controllers
             PowerFind.SetStatus($"Completed (in {timer.ElapsedMilliseconds}ms)");
             PowerFind.NotSearching();
             PowerFind.DisplayResults(allResults);
+            PowerFind.ClearStatusMessage();
         }
     }
 }
