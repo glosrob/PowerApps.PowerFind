@@ -20,8 +20,15 @@ namespace XRTSoft.PowerApps.PowerFind
         ExportMetadata("BackgroundColor", "LightGray"),
         ExportMetadata("PrimaryFontColor", "Black"),
         ExportMetadata("SecondaryFontColor", "White")]
+    /// <summary>
+    /// Searches for references to a field within a PowerApps environment.
+    /// </summary>
     public class PowerFind : PluginBase
     {
+        /// <summary>
+        /// Retrieves an instance of this control.
+        /// </summary>
+        /// <returns>An instance of this control.</returns>
         public override IXrmToolBoxPluginControl GetControl()
         {
             return new PowerFindControl();
@@ -35,14 +42,6 @@ namespace XRTSoft.PowerApps.PowerFind
 
         }
 
-        /// <summary>
-        /// Event fired by CLR when an assembly reference fails to load
-        /// Assumes that related assemblies will be loaded from a subfolder named the same as the Plugin
-        /// For example, a folder named Sample.XrmToolBox.MyPlugin 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
         private Assembly AssemblyResolveEventHandler(object sender, ResolveEventArgs args)
         {
             Assembly loadAssembly = null;
