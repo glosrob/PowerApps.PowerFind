@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>XRTSoft.PowerApps.PowerFind</id>
-    <version>2023.2.3.2</version>
+    <version>2023.02.03.3</version>
     <authors>Rob Tilling</authors>
     <owners></owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
