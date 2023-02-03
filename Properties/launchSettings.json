@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "XRTSoft.PowerApps.PowerFind": {
+      "commandName": "Executable",
+      "executablePath": "d:\\XrmToolbox\\XrmToolBox.exe",
+      "commandLineArgs": "/overridepath:D:\\Source\\Repos\\xrtsoft\\XRTSoft.PowerApps.PowerFind\\bin\\debug\\net462\\"
+    }
+  }
+}
