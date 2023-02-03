@@ -4,7 +4,7 @@
     <TargetFramework>net462</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>XRTSoft.PowerApps.PowerFind</PackageId>
-    <Version>2023.1.22.1</Version>
+    <Version>2023.02.03.2</Version>
     <Authors>Rob Tilling</Authors>
     <Company>XRTSoft</Company>
     <Product>PowerApps.PowerFind</Product>
@@ -15,6 +15,14 @@
     <RepositoryUrl>https://github.com/glosrob/PowerApps.PowerFind</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>XrmToolbox PowerApps PowerFind Search Find Dynamics365</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>2023.02.03.2</AssemblyVersion>
+    <FileVersion>2023.02.03.2</FileVersion>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,6 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
